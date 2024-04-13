@@ -25,7 +25,8 @@ export const BigSelectButton = (props: props) => {
         <FontAwesomeIcon
           size={props.label ? props.size * 0.5 : props.size * 0.75}
           color={COLORS.fontSecondary}
-          icon={props.icon}></FontAwesomeIcon>
+          icon={props.icon}
+        />
       )}
       <Text>{props.label}</Text>
     </GenericButton>

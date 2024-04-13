@@ -2,7 +2,6 @@ import {IconProp} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
 import {StyleSheet, Text, View} from 'react-native'
 import {FONTSIZE, FONTWEIGHT} from '../../styles/font'
-import {COLORS} from '../../styles/colors'
 
 type props = {
   icon: IconProp
@@ -14,7 +13,7 @@ type props = {
 export const TabItem = (props: props) => {
   return (
     <View style={styles.container}>
-      <FontAwesomeIcon color={props.color} icon={props.icon}></FontAwesomeIcon>
+      <FontAwesomeIcon color={props.color} icon={props.icon} />
       <Text
         style={[
           styles.text,

@@ -1,4 +1,4 @@
-import {RootStackParamList, TabStacks} from './types'
+import {RootStackParamList} from './types'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import {TabNavigator} from './Tabs'
 import {NewNameProject} from './modals/NewNameProject'
@@ -7,7 +7,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>()
 export const RootNavigator = () => {
   return (
     <RootStack.Navigator
-      screenOptions={({route}) => ({
+      screenOptions={() => ({
         headerShown: false,
       })}
       initialRouteName="TabStacks">

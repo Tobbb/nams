@@ -26,13 +26,15 @@ export const SelectName = () => {
           icon={item.icon}
           color={item.color}
           label={item.name}
-          size={iconWidth}></BigSelectButton>
+          size={iconWidth}
+        />
       ))}
       <BigSelectButton
         onPress={handleAdd}
         onDelete={() => {}}
         icon={faPlus}
-        size={iconWidth}></BigSelectButton>
+        size={iconWidth}
+      />
     </ScrollView>
   )
 }

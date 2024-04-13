@@ -15,20 +15,23 @@ export const TabNavigator = () => {
   return (
     <RootStack.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
-          let icon = focused ? faUser : faUserRegular
-          let label = 'Profil'
-          if (route.name === 'homeStack') {
-            icon = focused ? faComment : faCommentRegular
-            label = 'Namn'
-          }
-
+        // eslint-disable-next-line react/no-unstable-nested-components
+        tabBarIcon: ({focused}) => {
           return (
             <TabItem
               color={focused ? COLORS.fontPrimary : COLORS.fontSecondary}
-              icon={icon}
-              label={label}
-              focused={focused}></TabItem>
+              icon={
+                focused
+                  ? route.name === 'homeStack'
+                    ? faComment
+                    : faUser
+                  : route.name === 'homeStack'
+                  ? faCommentRegular
+                  : faUserRegular
+              }
+              label={route.name === 'homeStack' ? 'Namn' : 'Profil'}
+              focused={focused}
+            />
           )
         },
         tabBarActiveTintColor: COLORS.accent,

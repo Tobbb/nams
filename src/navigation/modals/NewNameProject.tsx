@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, ScrollView, Dimensions} from 'react-native'
+import {View, Text, StyleSheet, ScrollView} from 'react-native'
 import {FONTSIZE} from '../../styles/font'
 import {Input} from '../../components/inputs/Input'
 import {faDog} from '@fortawesome/free-solid-svg-icons/faDog'
@@ -55,7 +55,8 @@ export const NewNameProject = () => {
               items={PASTEL_COLORS}
               size={iconWidth}
               label="Färg"
-              onPress={v => setColor(v)}></NewProjectButtonGroup>
+              onPress={v => setColor(v)}
+            />
             <NewProjectButtonGroup<IconDefinition>
               items={ICONS}
               size={iconWidth}
@@ -71,20 +72,22 @@ export const NewNameProject = () => {
         onPress={() => {}}
         color={color}
         icon={icon}
-        label={label}></BigSelectButton>
-      <View style={{padding: 10}}>
+        label={label}
+      />
+      <View style={styles.btnContainer}>
         <Button
           disabled={!label}
           fullWidth
           label="Spara"
-          onPress={handleAddName}></Button>
+          onPress={handleAddName}
+        />
       </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  asd: {},
+  btnContainer: {padding: 10},
   h1: {
     fontSize: FONTSIZE.xxl,
     textAlign: 'center',

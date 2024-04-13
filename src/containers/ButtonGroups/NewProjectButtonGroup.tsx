@@ -22,7 +22,8 @@ export const NewProjectButtonGroup = <T extends string | IconDefinition>(
             color={typeof item === 'string' ? item : props.color}
             icon={typeof item === 'string' ? undefined : item}
             size={props.size}
-            onPress={() => props.onPress(item)}></BigSelectButton>
+            onPress={() => props.onPress(item)}
+          />
         ))}
       </View>
     </View>

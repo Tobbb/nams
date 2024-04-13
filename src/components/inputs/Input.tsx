@@ -33,14 +33,14 @@ export const Input = (props: props) => {
     }
     animatedValue.value = 1
   }
-  const handleValueChange = (value: string) => {
-    setValue(value)
-    props.onChangeText && props.onChangeText(value)
+  const handleValueChange = (v: string) => {
+    setValue(v)
+    props.onChangeText && props.onChangeText(v)
   }
 
   return (
     <View>
-      <Animated.View style={[, styles.labelContainer, animatedStyles]}>
+      <Animated.View style={[styles.labelContainer, animatedStyles]}>
         <Text style={styles.label}>{props.label}</Text>
       </Animated.View>
       <TextInput
@@ -48,7 +48,8 @@ export const Input = (props: props) => {
         onBlur={handleBlur}
         style={styles.input}
         value={value}
-        onChangeText={handleValueChange}></TextInput>
+        onChangeText={handleValueChange}
+      />
     </View>
   )
 }
