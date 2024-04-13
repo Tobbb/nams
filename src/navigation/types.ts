@@ -1,6 +1,6 @@
 export type HomeStackScreens = {
   selectName: undefined
-  createName: undefined
+  NamList: {uuid: string}
 }
 export type ProfileStackScreens = {
   login: undefined

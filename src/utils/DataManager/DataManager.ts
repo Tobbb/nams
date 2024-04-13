@@ -22,9 +22,7 @@ export const useNames = create<nameState>()(
     set => ({
       names: [],
       addNames: (newNames: nameDataItem[]) =>
-        set(state => {
-          return {names: [...state.names, ...newNames]}
-        }),
+        set(state => ({names: [...state.names, ...newNames]})),
       addName: (newName: nameDataItem) =>
         set(state => ({names: [...state.names, newName]})),
     }),

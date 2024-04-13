@@ -16,12 +16,15 @@ export const SelectName = () => {
   const handleAdd = () => {
     navigate('NewNameProject')
   }
+  const handleSelect = (uuid: string) => {
+    navigate('NamList', {uuid})
+  }
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {names.map(item => (
         <BigSelectButton
           key={item.uuid}
-          onPress={() => {}}
+          onPress={() => handleSelect(item.uuid)}
           onDelete={() => {}}
           icon={item.icon}
           color={item.color}

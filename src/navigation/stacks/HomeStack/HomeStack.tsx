@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import {SelectName} from './screens/SelectName'
 import {HomeStackScreens} from '../../types'
-import {CreateName} from './screens/CreateName'
+import {NameList} from './screens/NameList'
 
 const HomeStack = createNativeStackNavigator<HomeStackScreens>()
 
@@ -11,7 +11,7 @@ export const HomeStackNavigator = () => {
       initialRouteName="selectName"
       screenOptions={{headerShown: false}}>
       <HomeStack.Screen name="selectName" component={SelectName} />
-      <HomeStack.Screen name="createName" component={CreateName} />
+      <HomeStack.Screen name="NamList" component={NameList} />
     </HomeStack.Navigator>
   )
 }

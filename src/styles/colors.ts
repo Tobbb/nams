@@ -17,4 +17,4 @@ export const PASTEL_COLORS = [
   '#FFCBA7',
   '#D7F5D3',
   '#FCE9C4',
-]
+] as const
