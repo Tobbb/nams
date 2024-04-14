@@ -4,9 +4,10 @@ import {
   stackHeaderProps,
 } from '../components/navigation/StackHeader'
 import {COLORS} from '../styles/colors'
+import {ReactElement} from 'react'
 
 type stackContainerProps = stackHeaderProps & {
-  children: JSX.Element | JSX.Element[]
+  children: ReactElement | ReactElement[]
 }
 export const StackContainer = (props: stackContainerProps) => {
   return (
