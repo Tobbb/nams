@@ -39,7 +39,7 @@ export const Input = (props: props) => {
   }
 
   return (
-    <View style={{width: '100%'}}>
+    <View style={styles.container}>
       <Animated.View style={[styles.labelContainer, animatedStyles]}>
         <Text style={styles.label}>{props.label}</Text>
       </Animated.View>
@@ -55,6 +55,7 @@ export const Input = (props: props) => {
 }
 
 const styles = StyleSheet.create({
+  container: {width: '100%'},
   input: {
     width: '100%',
     borderBottomWidth: StyleSheet.hairlineWidth,

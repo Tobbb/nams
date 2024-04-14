@@ -9,10 +9,8 @@ import {NameItemModal} from './NameList/NameItemModal'
 import {useState} from 'react'
 import {Button} from '../../../../components/buttons/Button'
 import {BigSelectButton} from '../../../../components/buttons/BigSelectButton'
-import {faList} from '@fortawesome/free-solid-svg-icons'
 import {COLORS} from '../../../../styles/colors'
 import {iconsAndSorting, sortList} from './NameList/functions'
-import Animated from 'react-native-reanimated'
 
 type props = NativeStackScreenProps<HomeStackScreens, 'NamList'>
 
@@ -76,7 +74,7 @@ export const NameList = (props: props) => {
         contentContainerStyle={styles.contentContainer}
         data={sortList(data?.data || [], iconsAndSorting[iconIndex].sorting)}
       />
-      <View style={{padding: 10}}>
+      <View style={styles.btnContainer}>
         <Button onPress={handleAddNew} fullWidth label="Nytt namn" />
       </View>
     </StackContainer>
@@ -84,6 +82,9 @@ export const NameList = (props: props) => {
 }
 
 const styles = StyleSheet.create({
+  btnContainer: {
+    padding: 10,
+  },
   contentContainer: {
     paddingHorizontal: 10,
     rowGap: 10,

@@ -2,7 +2,7 @@ import {Pressable, StyleSheet, Text, View} from 'react-native'
 import {NameListItemType} from '../../../../../utils/DataManager/types'
 import {FONTSIZE, FONTWEIGHT} from '../../../../../styles/font'
 import {StarGroup} from '../../../../../components/features/StarGroup'
-import Animated, {SlideInLeft, SlideOutRight} from 'react-native-reanimated'
+import Animated, {SlideInLeft} from 'react-native-reanimated'
 
 type props = {
   item: NameListItemType
