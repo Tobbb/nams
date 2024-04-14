@@ -1,7 +1,7 @@
 export const COLORS = {
   primary: '#F8EDE3',
   secondary: '#BDD2B6',
-  accent: '#798777',
+  accent: '#ffc870',
   fontPrimary: '#212121',
   fontSecondary: '#545454',
   disabled: '#aaa',

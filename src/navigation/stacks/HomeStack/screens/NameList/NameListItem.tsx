@@ -2,6 +2,7 @@ import {Pressable, StyleSheet, Text, View} from 'react-native'
 import {NameListItemType} from '../../../../../utils/DataManager/types'
 import {FONTSIZE, FONTWEIGHT} from '../../../../../styles/font'
 import {StarGroup} from '../../../../../components/features/StarGroup'
+import Animated, {SlideInLeft, SlideOutRight} from 'react-native-reanimated'
 
 type props = {
   item: NameListItemType
@@ -9,27 +10,32 @@ type props = {
 }
 export const NameListItem = (props: props) => {
   return (
-    <Pressable onPress={() => props.onPress(props.item)}>
-      <View style={styles.container}>
-        <View style={styles.infoContainer}>
-          <Text style={styles.nameText}>{props.item.name}</Text>
-          <View>
-            {props.item.rating.map((rating, i) => {
-              return (
-                <StarGroup
-                  key={i}
-                  author={rating.author}
-                  stars={rating.stars}
-                />
-              )
-            })}
+    <Animated.View entering={SlideInLeft}>
+      <Pressable onPress={() => props.onPress(props.item)}>
+        <View style={styles.container}>
+          <View style={styles.infoContainer}>
+            <Text style={styles.nameText}>{props.item.name}</Text>
+            <View>
+              {props.item.rating.map((rating, i) => {
+                return (
+                  <StarGroup
+                    key={i}
+                    author={rating.author}
+                    stars={rating.stars}
+                  />
+                )
+              })}
+            </View>
           </View>
+          <View
+            style={[
+              styles.tagContainer,
+              {backgroundColor: props.item.colorTag},
+            ]}
+          />
         </View>
-        <View
-          style={[styles.tagContainer, {backgroundColor: props.item.colorTag}]}
-        />
-      </View>
-    </Pressable>
+      </Pressable>
+    </Animated.View>
   )
 }
 

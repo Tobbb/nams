@@ -8,6 +8,11 @@ import {NameListItemType} from '../../../../utils/DataManager/types'
 import {NameItemModal} from './NameList/NameItemModal'
 import {useState} from 'react'
 import {Button} from '../../../../components/buttons/Button'
+import {BigSelectButton} from '../../../../components/buttons/BigSelectButton'
+import {faList} from '@fortawesome/free-solid-svg-icons'
+import {COLORS} from '../../../../styles/colors'
+import {iconsAndSorting, sortList} from './NameList/functions'
+import Animated from 'react-native-reanimated'
 
 type props = NativeStackScreenProps<HomeStackScreens, 'NamList'>
 
@@ -19,6 +24,7 @@ const defaultItem: NameListItemType = {
 }
 
 export const NameList = (props: props) => {
+  const [iconIndex, setIconIndex] = useState(0)
   const data = useNames(state =>
     state.names.find(name => name.uuid === props.route.params.uuid),
   )
@@ -39,8 +45,20 @@ export const NameList = (props: props) => {
     setUpdateItem(item)
     setModalShowing(true)
   }
+  const handleChangeIndex = () => {
+    setIconIndex(iconIndex < iconsAndSorting.length - 1 ? iconIndex + 1 : 0)
+  }
   return (
-    <StackContainer label={name?.name}>
+    <StackContainer
+      rightContent={
+        <BigSelectButton
+          color={COLORS.accent}
+          onPress={handleChangeIndex}
+          icon={iconsAndSorting[iconIndex].icon}
+          size={30}
+        />
+      }
+      label={name?.name}>
       <NameItemModal
         project={props.route.params.uuid}
         showing={modalShowing}
@@ -56,7 +74,7 @@ export const NameList = (props: props) => {
           <NameListItem onPress={i => handleEdit(i)} item={item} />
         )}
         contentContainerStyle={styles.contentContainer}
-        data={data?.data}
+        data={sortList(data?.data || [], iconsAndSorting[iconIndex].sorting)}
       />
       <View style={{padding: 10}}>
         <Button onPress={handleAddNew} fullWidth label="Nytt namn" />

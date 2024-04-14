@@ -11,7 +11,7 @@ type stackContainerProps = stackHeaderProps & {
 export const StackContainer = (props: stackContainerProps) => {
   return (
     <View style={styles.container}>
-      <StackHeader label={props.label} />
+      <StackHeader rightContent={props.rightContent} label={props.label} />
       {props.children}
     </View>
   )

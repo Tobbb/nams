@@ -1,22 +1,14 @@
-import {
-  Modal,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
+import {Modal, Pressable, ScrollView, StyleSheet, View} from 'react-native'
 import {NameListItemType} from '../../../../../utils/DataManager/types'
-import {FONTSIZE, FONTWEIGHT} from '../../../../../styles/font'
 import {StarGroup} from '../../../../../components/features/StarGroup'
 import {InfoFetcher} from '../../../../../components/features/infoFetcher'
-import {Input} from '../../../../../components/inputs/Input'
 import {useEffect, useState} from 'react'
 import {NewProjectButtonGroup} from '../../../../../containers/ButtonGroups/NewProjectButtonGroup'
 import {PASTEL_COLORS} from '../../../../../styles/colors'
 import uuid from 'react-native-uuid'
 import {useNames} from '../../../../../utils/DataManager/DataManager'
 import {BtnGroup} from './NameItemModal/BtnGroup'
+import {ModalHeader} from './NameItemModal/ModalHeader'
 
 type props = {
   showing: boolean
@@ -87,16 +79,11 @@ export const NameItemModal = (props: props) => {
             style={styles.scrollContainer}
             contentContainerStyle={styles.contentContainer}>
             <Pressable style={styles.innerContainer}>
-              {props.new ? (
-                <Input
-                  onChangeText={value => {
-                    updateValue({name: value})
-                  }}
-                  label="Namn"
-                />
-              ) : (
-                <Text style={styles.h1}>{props.item.name}</Text>
-              )}
+              <ModalHeader
+                new={props.new}
+                updateValue={updateValue}
+                name={props.item.name}
+              />
               {item.rating.map(rating => {
                 return (
                   <StarGroup
@@ -153,10 +140,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 5,
     padding: 10,
-  },
-  h1: {
-    fontSize: FONTSIZE.xl,
-    fontWeight: FONTWEIGHT.semiBold,
-    textAlign: 'center',
   },
 })
