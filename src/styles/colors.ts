@@ -6,6 +6,7 @@ export const COLORS = {
   fontSecondary: '#545454',
   disabled: '#aaa',
   disabledText: '#ddd',
+  danger: '#f5424b',
 }
 
 export const PASTEL_COLORS = [

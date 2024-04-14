@@ -8,6 +8,7 @@ type props = {
   onPress(): void
   fullWidth: boolean
   disabled?: boolean
+  color?: string
 }
 export const Button = (props: props) => {
   return (
@@ -16,6 +17,7 @@ export const Button = (props: props) => {
       textStyle={[styles.text, props.disabled && styles.disabledText]}
       style={[
         styles.btn,
+        !!props.color && {backgroundColor: props.color},
         !props.fullWidth && styles.defaultWidth,
         props.disabled && styles.disabled,
       ]}

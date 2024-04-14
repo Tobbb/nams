@@ -40,6 +40,7 @@ export const NewNameProject = () => {
       color: color,
       uuid: uuid.v4() as string,
       source: 'local',
+      data: [],
     })
     goBack()
   }
@@ -52,7 +53,7 @@ export const NewNameProject = () => {
           <Input onChangeText={value => setLabel(value)} label="Projektnamn" />
           <View>
             <NewProjectButtonGroup<string>
-              items={PASTEL_COLORS}
+              items={PASTEL_COLORS as unknown as string[]}
               size={iconWidth}
               label="Färg"
               onPress={v => setColor(v)}

@@ -3,12 +3,13 @@ import {BigSelectButton} from '../../components/buttons/BigSelectButton'
 import {IconDefinition} from '@fortawesome/fontawesome-svg-core'
 
 type props<T extends string | IconDefinition> = {
-  label: string
+  label?: string
   size: number
   onPress(item: T): void
   items: T[]
   color?: string
 }
+
 export const NewProjectButtonGroup = <T extends string | IconDefinition>(
   props: props<T>,
 ) => {

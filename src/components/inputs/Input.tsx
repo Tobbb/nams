@@ -39,7 +39,7 @@ export const Input = (props: props) => {
   }
 
   return (
-    <View>
+    <View style={{width: '100%'}}>
       <Animated.View style={[styles.labelContainer, animatedStyles]}>
         <Text style={styles.label}>{props.label}</Text>
       </Animated.View>

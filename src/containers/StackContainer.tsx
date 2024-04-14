@@ -6,7 +6,7 @@ import {
 import {COLORS} from '../styles/colors'
 
 type stackContainerProps = stackHeaderProps & {
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }
 export const StackContainer = (props: stackContainerProps) => {
   return (
